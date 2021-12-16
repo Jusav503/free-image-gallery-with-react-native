@@ -5,18 +5,18 @@ import React from "react";
 import { View } from "react-native";
 
 import HomeScreen from "./screens/HomeScreen";
-import ImageScreen from "./screens/ImageScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
 
   return (
     <View style={{flex:1}}>
-      <StatusBar style="dark" />
-      <NavigationContainer>
-        <Stack.Navigator initialRouteName="Home">
+      <StatusBar style="light" backgroundColor="black" />
+      <NavigationContainer theme={{ colors: { background: "#121212" } }}>
+        <Stack.Navigator 
+          initialRouteName="Home"        
+          screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomeScreen} />
-          <Stack.Screen name="Image" component={ImageScreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>
