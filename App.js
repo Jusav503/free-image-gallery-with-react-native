@@ -5,6 +5,7 @@ import React from "react";
 import { View } from "react-native";
 
 import HomeScreen from "./screens/HomeScreen";
+import ImageDetailscreen from "./screens/ImageDetailsScreen";
 
 export default function App() {
   const Stack = createNativeStackNavigator();
@@ -17,6 +18,7 @@ export default function App() {
           initialRouteName="Home"        
           screenOptions={{ headerShown: false }}>
           <Stack.Screen name="Home" component={HomeScreen} />
+          <Stack.Screen name="Details" component={ImageDetailscreen} />
         </Stack.Navigator>
       </NavigationContainer>
     </View>

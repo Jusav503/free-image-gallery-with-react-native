@@ -1,13 +1,17 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { View, Image, StyleSheet, Dimensions } from "react-native";
+import { View, Image, StyleSheet, Dimensions, TouchableOpacity } from "react-native";
 
 const WIDTH = Dimensions.get("window").width;
 
 const CardImage = ({widthImage, heightImage, photo}) => {
+  const navigation = useNavigation();
   return (
-    <View style={[styles.imageContainer, {width: WIDTH / widthImage}]}>
-      <Image style={{width: "100%", height: heightImage}} source={{ uri: photo.src.medium }} />
-    </View>
+    <TouchableOpacity onPress={()=> navigation.navigate('Details', {imageId: photo.id})}>
+      <View style={[styles.imageContainer, {width: WIDTH / widthImage}]}>
+        <Image style={{width: "100%", height: heightImage}} source={{ uri: photo.src.medium }} />
+      </View>
+    </TouchableOpacity>
   );
 };
 

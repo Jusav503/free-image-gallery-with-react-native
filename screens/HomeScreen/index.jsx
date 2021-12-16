@@ -23,6 +23,7 @@ const HomeScreen = () => {
         renderItem={({ item }) => <CardImage photo={item} widthImage={2.1} heightImage={120} />}
         numColumns="2"
         showsVerticalScrollIndicator={false}
+        onPress={console.log(photos.id)}
       />
     </SafeAreaView>
   );
