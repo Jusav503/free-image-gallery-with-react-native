@@ -6,11 +6,11 @@ import { getImages } from "../../api/pexels";
 import CardImage from "../../components/CardImage";
 
 const HomeScreen = () => {
-  const [photos, setPhotos] = useState([]);
+  const [images, setImages] = useState([]);
 
   const loadImages = async () => {
     const res = await getImages();
-    setPhotos(res)
+    setImages(res)
   };
   useEffect(() => {
     loadImages();
@@ -19,11 +19,10 @@ const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
       <FlatList
-        data={photos}
-        renderItem={({ item }) => <CardImage photo={item} widthImage={2.1} heightImage={120} />}
+        data={images}
+        renderItem={({ item }) => <CardImage image={item} widthImage={2.1} heightImage={220} />}
         numColumns="2"
         showsVerticalScrollIndicator={false}
-        onPress={console.log(photos.id)}
       />
     </SafeAreaView>
   );
