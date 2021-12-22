@@ -38,20 +38,19 @@ const ImageDetailscreen = () => {
   } = image;
 
   return (
-    <SafeAreaView>
-      <ScrollView>
+      <View style={{flex:1}}>
         <HeaderOptions />
-        <View style>
-          <Image source={{ uri: portrait }} style={styles.image} />
-          <View style={styles.infoContainer}>
-            <Text style={styles.creator}>By: {photographer}</Text>
-            <Text>asetg asegta eryhsdf ysdfyh dsfy dzfh dfh edrh drh </Text>
-            <Text>asetg asegta eryhsdf ysdfyh dsfy dzfh dfh edrh drh </Text>
-            <Text>asetg asegta eryhsdf ysdfyh dsfy dzfh dfh edrh drh </Text>
-          </View>
+        <View style={{flex:1}}>
+          <ScrollView>
+            <View style>
+              <Image source={{ uri: portrait }} style={styles.image} />
+              <View style={styles.infoContainer}>
+                <Text style={styles.creator}>By: {photographer}</Text>
+              </View>
+            </View>
+          </ScrollView>
         </View>
-      </ScrollView>
-    </SafeAreaView>
+      </View>
   );
 };
 

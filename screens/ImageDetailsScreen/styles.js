@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   container:{
-      flexDirection:"row"
+    flexDirection:"row"
   },
   image: { 
     width: "100%", 
