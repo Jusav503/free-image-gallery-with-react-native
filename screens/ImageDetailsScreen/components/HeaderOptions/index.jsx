@@ -1,11 +1,12 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { Modal, Text, TouchableOpacity, View } from "react-native";
+import { Modal, Text, TouchableOpacity, View, Alert } from "react-native";
 import { Ionicons, Entypo } from "@expo/vector-icons";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { Feather } from "@expo/vector-icons";
 import * as FileSystem from "expo-file-system";
 import * as MediaLibrary from "expo-media-library";
+import { Root, Popup } from "popup-ui";
 
 import styles from "./styles";
 import atoms from "../../../../components/atoms";
@@ -22,7 +23,6 @@ const HeaderOptions = (props) => {
       await MediaLibrary.createAlbumAsync("Download", asset, false);
     }
   };
-
   const saveFile = async () => {
     try {
       let fileUri = FileSystem.documentDirectory + imageId + ".jpeg";
@@ -34,13 +34,19 @@ const HeaderOptions = (props) => {
   };
 
   const onPressDownload = () => {
-    saveFile();
+    // saveFile();
+    setModalVisible(false);
+    Alert.alert('', 'Descarga finalizada ✅');
   };
 
   return (
     <SafeAreaView style={styles.container}>
       <TouchableOpacity onPress={() => navigation.goBack()}>
         <Ionicons name="chevron-back" size={25} color="white" />
+      </TouchableOpacity>
+
+      <TouchableOpacity onPress={() => setModalVisible(true)}>
+        <Entypo name="dots-three-vertical" size={22} color="white" />
       </TouchableOpacity>
 
       <Modal
@@ -53,20 +59,13 @@ const HeaderOptions = (props) => {
         }}
       >
         <View style={styles.modalContainer}>
+          {/* Download button */}
           <TouchableOpacity onPress={() => onPressDownload()} style={styles.modal}>
-            <Feather
-              name="download"
-              size={24}
-              color="white"
-              style={{ right: 10 }}
-            />
+            <Feather name="download" size={24} color="white" style={{ right: 10 }}/>
             <Text style={atoms.largeText}>Descargar</Text>
           </TouchableOpacity>
-
-          <TouchableOpacity
-            onPress={() => setModalVisible(!modalVisible)}
-            style={styles.cancelModalButtom}
-          >
+          {/* Cancel button */}
+          <TouchableOpacity onPress={() => setModalVisible(!modalVisible)} style={styles.cancelModalButtom}>
             <Text style={[atoms.mediumText, { letterSpacing: 1 }]}>
               Cancelar
             </Text>
@@ -74,9 +73,6 @@ const HeaderOptions = (props) => {
         </View>
       </Modal>
 
-      <TouchableOpacity onPress={() => setModalVisible(true)}>
-        <Entypo name="dots-three-vertical" size={22} color="white" />
-      </TouchableOpacity>
     </SafeAreaView>
   );
 };
