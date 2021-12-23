@@ -31,6 +31,7 @@ const ImageDetailscreen = () => {
     );
   }
   const {
+    id,
     photographer,
     photographer_url,
     src: { portrait },
@@ -38,19 +39,19 @@ const ImageDetailscreen = () => {
   } = image;
 
   return (
-      <View style={{flex:1}}>
-        <HeaderOptions />
-        <View style={{flex:1}}>
-          <ScrollView>
-            <View style>
-              <Image source={{ uri: portrait }} style={styles.image} />
-              <View style={styles.infoContainer}>
-                <Text style={styles.creator}>By: {photographer}</Text>
-              </View>
+    <View style={{ flex: 1 }}>
+      <HeaderOptions src={portrait} imageId={id} />
+      <View style={{ flex: 1 }}>
+        <ScrollView>
+          <View style>
+            <Image source={{ uri: portrait }} style={styles.image} />
+            <View style={styles.infoContainer}>
+              <Text style={styles.creator}>By: {photographer}</Text>
             </View>
-          </ScrollView>
-        </View>
+          </View>
+        </ScrollView>
       </View>
+    </View>
   );
 };
 
