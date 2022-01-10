@@ -29,7 +29,7 @@ const HomeScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container:{alignItems:"center"}
+  container:{alignItems:"center", marginTop: -30}
 })
 
 export default HomeScreen;

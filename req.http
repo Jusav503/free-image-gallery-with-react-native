@@ -1,2 +1,7 @@
+# curl -H "Authorization: 563492ad6f91700001000001b0e0d52bc159442599cdeaf256d463ac" \
+#   "https://api.pexels.com/v1/photos/9183319"
+
 curl -H "Authorization: 563492ad6f91700001000001b0e0d52bc159442599cdeaf256d463ac" \
-  "https://api.pexels.com/v1/photos/9183319"
+  "https://api.pexels.com/v1/search?query=nature"
+
+# https://api.coingecko.com/api/v3/coins/markets?vs_currency=eur&order=market_cap_desc&per_page=100&page=1&sparkline=false
